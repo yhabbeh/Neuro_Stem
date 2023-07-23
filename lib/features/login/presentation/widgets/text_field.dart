@@ -5,11 +5,10 @@ Widget customTextField({required double screenWidth, required bool isPass, requi
     width: screenWidth * 0.8,
     child: TextFormField(
       decoration: InputDecoration(
-        hintMaxLines: 30,
         labelText: title,
         labelStyle: TextStyle(
           color: Colors.blueAccent,
-          fontSize: screenWidth * 0.03,
+          fontSize: screenWidth * 0.04,
         ),focusedBorder: const UnderlineInputBorder(
           borderSide: BorderSide(color: Colors.blue),
         ),
@@ -22,6 +21,7 @@ Widget customTextField({required double screenWidth, required bool isPass, requi
         fontSize: 17,
       ),
       obscureText: isPass,
+      textInputAction: isPass?TextInputAction.done:TextInputAction.next,
     ),
   ) ;
 }
