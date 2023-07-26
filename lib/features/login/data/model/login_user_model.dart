@@ -1,8 +1,5 @@
 class LoginUserModel{
 
-  String? username;
-  String? password;
-
   LoginUserModel({
     this.username,
     this.password,
@@ -12,6 +9,9 @@ class LoginUserModel{
     username = json['Username'];
     password = json['Password'];
   }
+
+  String? username;
+  String? password;
 
   Map<String, dynamic> toJson() {
     return {

@@ -1,8 +1,4 @@
 class LoginModel {
-  String? message;
-  bool? isSuccee;
-  int? returnId;
-  List<dynamic>? results;
 
   LoginModel({
     this.message,
@@ -17,6 +13,10 @@ class LoginModel {
     returnId = json['ReturnId'];
     results =json['Results']??[];
   }
+  String? message;
+  bool? isSuccee;
+  int? returnId;
+  List<dynamic>? results;
 
   Map<String, dynamic> toJson() {
     return  {
@@ -29,13 +29,13 @@ class LoginModel {
 
 }
 class UserGroups {
-  int? groupID;
 
   UserGroups({this.groupID});
 
   UserGroups.fromJson(Map<String, dynamic> json) {
     groupID = json['GroupID'];
   }
+  int? groupID;
   Map<String, dynamic> toJson() {
     return {
       'GroupID': groupID,

@@ -1,16 +1,17 @@
 import 'package:dartz/dartz.dart';
-import 'package:neuro_stem/core/error/failures.dart';
-import 'package:neuro_stem/core/platform/network_info.dart';
-import 'package:neuro_stem/features/login/data/model/login_model.dart';
-import 'package:neuro_stem/features/login/data/model/login_user_model.dart';
-import 'package:neuro_stem/features/login/domain/repositories/login_repositories.dart';
+
+import '../../../../core/error/failures.dart';
+import '../../../../core/platform/network_info.dart';
+import '../../domain/repositories/login_repositories.dart';
+import '../model/login_model.dart';
+import '../model/login_user_model.dart';
 
 class LoginRepositoriesImpl extends LoginRepositories {
-  final NetworkInfo networkInfo;
 
   LoginRepositoriesImpl({
     required this.networkInfo,
   });
+  final NetworkInfo networkInfo;
 
   @override
   Future<Either<Failure, LoginModel>> loginUser(LoginUserModel loginUserModel) {

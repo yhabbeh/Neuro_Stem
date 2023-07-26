@@ -13,7 +13,7 @@ Widget buildBackgroundClipper ({required double screenHeight, required double sc
           image: DecorationImage(
             matchTextDirection: true,
             image: AssetImage(
-              'images/3647100.jpg',
+              'images/10316.jpg',
             ),
             fit: BoxFit.cover,
           ),

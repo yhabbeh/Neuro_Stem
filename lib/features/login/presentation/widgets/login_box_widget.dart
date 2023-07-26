@@ -1,19 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:neuro_stem/features/login/presentation/widgets/text_field.dart';
+import 'text_field_widget.dart';
 
-loginBox({required double screenHeight, required double screenWidth}){
-  return [
-    Center(
-      child: Container(
-        decoration: BoxDecoration(
-            color: Colors.white70,
-            borderRadius: const BorderRadius.all(Radius.circular(20)),
-            border: Border.all(color: Colors.black12)),
-        margin: const EdgeInsets.only(top: 160),
-        width: screenWidth * 0.9,
-        height: screenHeight * 0.35,
-      ),
-    ),
+Widget loginBox({required double screenHeight, required double screenWidth}){
+  return
     SizedBox(
       width: screenWidth,
       height: screenHeight,
@@ -31,9 +20,9 @@ loginBox({required double screenHeight, required double screenWidth}){
               ),
               child: Image.asset( 'images/neuro_logo.png')),
           customTextField(
-              screenWidth: screenWidth, title: "USERNAME", isPass: false),
+              screenWidth: screenWidth, title: 'USERNAME', isPass: false),
           customTextField(
-              screenWidth: screenWidth, title: "PASSWORD", isPass: true),
+              screenWidth: screenWidth, title: 'PASSWORD', isPass: true),
           Container(
             margin: EdgeInsets.symmetric(
                 horizontal: screenWidth * 0.15, vertical: 15),
@@ -44,7 +33,7 @@ loginBox({required double screenHeight, required double screenWidth}){
               style: const ButtonStyle(
                   backgroundColor:
                   MaterialStatePropertyAll(Color(0xFF90CAF9))),
-              child: Text("LOGIN",
+              child: Text('LOGIN',
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       color: Colors.white,
@@ -55,7 +44,6 @@ loginBox({required double screenHeight, required double screenWidth}){
             ),
           )
         ],
-      ),
-    ),
-  ];
+      ));
+
 }

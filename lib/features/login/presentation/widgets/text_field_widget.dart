@@ -14,7 +14,7 @@ Widget customTextField({required double screenWidth, required bool isPass, requi
         ),
         enabledBorder: const UnderlineInputBorder(
             borderSide:
-            BorderSide(color: Colors.grey, width: 1.0)),
+            BorderSide(color: Colors.grey)),
       ),
       style: const TextStyle(
         color: Colors.black87,
