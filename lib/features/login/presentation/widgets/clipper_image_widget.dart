@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import '../../../../core/utilities/responsive_ui.dart';
 import 'clipper_path.dart';
+class BuildBackgroundClipper extends StatelessWidget {
+  const BuildBackgroundClipper({super.key});
 
-Widget buildBackgroundClipper ({required double screenHeight, required double screenWidth}){
-  return
-    ClipPath(
+  @override
+  Widget build(BuildContext context) {
+    return     ClipPath(
       clipper: ClipperPath(),
       child: Container(
-        height: screenHeight * 0.5,
-        width: screenWidth,
+        height: ResponsiveUI.screenHeight! * 0.5,
+        width: ResponsiveUI.screenWidth,
         decoration: const BoxDecoration(
           color: Colors.cyan,
           image: DecorationImage(
@@ -20,4 +23,6 @@ Widget buildBackgroundClipper ({required double screenHeight, required double sc
         ),
       ),
     );
+  }
 }
+
