@@ -11,6 +11,7 @@ class LoginBox extends StatelessWidget {
   LoginBox({Key? key}) : super(key: key);
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -34,22 +35,24 @@ class LoginBox extends StatelessWidget {
               isPassword: false,
               controller: usernameController,
             ),
-            BlocBuilder(
-              bloc: LoginCubit(),
-              builder: (BuildContext context, LoginState state) =>
-                  CustomTextField(
-                title: 'PASSWORD',
-                isPassword: true,
-                controller: passwordController,
-                changeIconSuffix: LoginCubit.get(context).getIsVisiblePass,
-                onPressVisiblePass: () {
-                  LoginCubit.get(context).setIsVisiblePass =
-                      !LoginCubit.get(context).getIsVisiblePass;
-                  log(LoginCubit.get(context).getIsVisiblePass.toString());
-                  log(state.toString());
-                },
-              ),
-            ),
+            BlocBuilder<LoginCubit, LoginState>(
+                builder: (BuildContext context, LoginState state) {
+              if (state is IsVisiblePasswordLoading) {
+                return Container();
+              } else {
+                return CustomTextField(
+                  title: 'PASSWORD',
+                  isPassword: true,
+                  controller: passwordController,
+                  changeIconSuffix: LoginCubit.get(context).getIsVisiblePass,
+                  onPressVisiblePass: () {
+                    LoginCubit.get(context).setIsVisiblePass =
+                        !LoginCubit.get(context).getIsVisiblePass;
+                    log(LoginCubit.get(context).getIsVisiblePass.toString());
+                  },
+                );
+              }
+            }),
             Container(
               margin: EdgeInsets.symmetric(
                   horizontal: ResponsiveUI.screenWidth! * 0.15, vertical: 15),
