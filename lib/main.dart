@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'core/utilities/notification_utiities.dart';
 import 'core/utilities/responsive_ui.dart';
 import 'features/login/presentation/cubit/login_cubit.dart';
 import 'features/login/presentation/pages/login_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  NotificationUtilities.initialize();
+  NotificationUtilities.requestPermissions();
   runApp(const MyApp());
 }
 
