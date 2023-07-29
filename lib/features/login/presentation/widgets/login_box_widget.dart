@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neuro_stem/core/custom_widgets/text_field_widget.dart';
 
 import '../../../../core/utilities/responsive_ui.dart';
+import '../../../home/presentation/page/home_page.dart';
 import '../cubit/login_cubit.dart';
 
 class LoginBox extends StatelessWidget {
@@ -59,10 +60,13 @@ class LoginBox extends StatelessWidget {
               width: ResponsiveUI.screenWidth! * 0.5,
               height: ResponsiveUI.screenHeight! * 0.05,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => const HomePage())),
                 style: const ButtonStyle(
                     backgroundColor:
-                        MaterialStatePropertyAll(Color(0xFF90CAF9))),
+                        MaterialStatePropertyAll<Color>(Color(0xFF90CAF9))),
                 child: const Text('LOGIN',
                     textAlign: TextAlign.center,
                     style:
