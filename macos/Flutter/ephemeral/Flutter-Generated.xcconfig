@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=C:\Users\nebee\Downloads\flutter 3.10.6\flutter
-FLUTTER_APPLICATION_PATH=C:\Users\nebee\StudioProjects\Neuro_Stem
+FLUTTER_ROOT=D:\flutter_version\flutter_windows_3.10.6-stable\flutter
+FLUTTER_APPLICATION_PATH=D:\flutter_projects\Neuro_Stem
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0

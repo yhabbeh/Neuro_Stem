@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/utilities/responsive_ui.dart';
+import 'features/home/presentation/cubit/home_cubit.dart';
 import 'features/login/presentation/cubit/login_cubit.dart';
 import 'features/login/presentation/pages/login_page.dart';
 
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (_) => LoginCubit(),
-        )
+        ),
+        BlocProvider(
+          create: (_) => HomeCubit(),
+        ),
       ],
       child: const MaterialApp(
           debugShowCheckedModeBanner: false, home: LoginPage()),

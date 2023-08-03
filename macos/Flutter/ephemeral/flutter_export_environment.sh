@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\Users\nebee\Downloads\flutter 3.10.6\flutter"
-export "FLUTTER_APPLICATION_PATH=C:\Users\nebee\StudioProjects\Neuro_Stem"
+export "FLUTTER_ROOT=D:\flutter_version\flutter_windows_3.10.6-stable\flutter"
+export "FLUTTER_APPLICATION_PATH=D:\flutter_projects\Neuro_Stem"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=1.0.0"
