@@ -17,10 +17,9 @@ class LoginBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width: ResponsiveUI.screenWidth,
-        height: ResponsiveUI.screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             Container(
                 padding: const EdgeInsets.all(20),
                 margin: const EdgeInsets.only(top: 50),
@@ -63,7 +62,7 @@ class LoginBox extends StatelessWidget {
                 onPressed: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (BuildContext context) => const HomePage())),
+                        builder: (BuildContext context) => HomePage())),
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll<Color>(Color(0xFF90CAF9))),

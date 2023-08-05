@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +14,8 @@ class HeartRate extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
         builder: (BuildContext context, HomeState state) {
-          TimerSetter(4,context);
-          // log(CacheHelper.getData(key: BPM_RATE).toString());
+      TimerSetter(4, context);
+      // log(CacheHelper.getData(key: BPM_RATE).toString());
       return Column(
         children: <Widget>[
           Container(
@@ -30,11 +29,11 @@ class HeartRate extends StatelessWidget {
           ),
           Card(
             shadowColor: Colors.blue.shade900,
-            elevation: 5,
+            elevation: 10,
             child: Container(
               padding: const EdgeInsets.only(right: 20),
               height: ResponsiveUI.screenHeight! * 0.3,
-              width: ResponsiveUI.screenWidth,
+              width: ResponsiveUI.screenWidth! * 0.8,
               child: AspectRatio(
                 aspectRatio: 1,
                 child: LineChart(
@@ -45,7 +44,7 @@ class HeartRate extends StatelessWidget {
                               FlSpot(DateTime.now().minute.toDouble(),
                                   HomeCubit.get(context).getBpmRatio),
                               FlSpot(
-                                  calculateTimeInPast(timeDifference: 10),73),
+                                  calculateTimeInPast(timeDifference: 10), 73),
                               FlSpot(
                                   calculateTimeInPast(timeDifference: 20), 66),
                               FlSpot(
@@ -63,7 +62,6 @@ class HeartRate extends StatelessWidget {
                             dotData: const FlDotData(show: false),
                             color: Colors.lightBlueAccent),
                       ],
-                      minX: 0,
                       maxX: 60,
                       minY: 50,
                       maxY: 80,
@@ -93,8 +91,6 @@ double calculateTimeInPast({double timeDifference = 0}) {
   return timeInPast;
 }
 
-TimerSetter(int duration,BuildContext context) {
-  Timer(Duration(seconds: duration ),
-      () => HomeCubit.get(context).getBpmRatio
-  );
+TimerSetter(int duration, BuildContext context) {
+  Timer(Duration(seconds: duration), () => HomeCubit.get(context).getBpmRatio);
 }

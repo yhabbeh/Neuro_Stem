@@ -1,8 +1,8 @@
 part of 'home_cubit.dart';
 
-
 abstract class HomeState extends Equatable {
   const HomeState();
+
   @override
   List<Object> get props => [];
 }
@@ -13,3 +13,6 @@ class BpmRatioLoading extends HomeState {}
 
 class BpmRatioLoaded extends HomeState {}
 
+class StressLevelLoading extends HomeState {}
+
+class StressLevelLoaded extends HomeState {}
