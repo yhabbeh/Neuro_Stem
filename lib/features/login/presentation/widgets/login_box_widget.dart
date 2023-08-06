@@ -3,13 +3,14 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:neuro_stem/core/custom_widgets/text_field_widget.dart';
+import 'package:neuro_stem/core/utilities/notification_utiities.dart';
 
 import '../../../../core/utilities/responsive_ui.dart';
 import '../../../home/presentation/page/home_page.dart';
 import '../cubit/login_cubit.dart';
 
 class LoginBox extends StatelessWidget {
-  LoginBox({Key? key}) : super(key: key);
+  LoginBox({super.key});
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -17,6 +18,7 @@ class LoginBox extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
         width: ResponsiveUI.screenWidth,
+        height: ResponsiveUI.screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -59,10 +61,19 @@ class LoginBox extends StatelessWidget {
               width: ResponsiveUI.screenWidth! * 0.5,
               height: ResponsiveUI.screenHeight! * 0.05,
               child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => HomePage())),
+                onPressed: () {
+                  Future<void>.delayed(
+                      const Duration(seconds: 30),
+                      () => NotificationUtilities.showBigTextNotification(
+                          id: '0',
+                          title: 'Hello Nabeeh',
+                          body: 'You Are Stress',
+                          payload: 'hi hi hi h ihi'));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => HomePage()));
+                  },
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll<Color>(Color(0xFF90CAF9))),
