@@ -15,7 +15,7 @@ class NotificationUtilities {
       requestAlertPermission: false,
     );
     const AndroidInitializationSettings androidInitialize =
-        AndroidInitializationSettings('mipmap/ic_launcher');
+        AndroidInitializationSettings('mipmap/neuro_logo');
     const InitializationSettings initializationsSettings =
         InitializationSettings(
             android: androidInitialize, iOS: initializationSettingsDarwin);
