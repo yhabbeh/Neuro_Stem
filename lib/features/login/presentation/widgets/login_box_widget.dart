@@ -2,15 +2,16 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:neuro_stem/core/custom_widgets/text_field_widget.dart';
-import 'package:neuro_stem/core/utilities/notification_utiities.dart';
 
+import '../../../../core/custom_widgets/text_field_widget.dart';
+import '../../../../core/utilities/notification_utiities.dart';
 import '../../../../core/utilities/responsive_ui.dart';
 import '../../../home/presentation/page/home_page.dart';
 import '../cubit/login_cubit.dart';
 
 class LoginBox extends StatelessWidget {
   LoginBox({super.key});
+
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -21,7 +22,7 @@ class LoginBox extends StatelessWidget {
         height: ResponsiveUI.screenHeight,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Container(
                 padding: const EdgeInsets.all(20),
                 margin: const EdgeInsets.only(top: 50),
@@ -63,7 +64,7 @@ class LoginBox extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Future<void>.delayed(
-                      const Duration(seconds: 30),
+                      const Duration(seconds: 10),
                       () => NotificationUtilities.showBigTextNotification(
                           id: '0',
                           title: 'Hello Nabeeh',
@@ -73,10 +74,10 @@ class LoginBox extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (BuildContext context) => HomePage()));
-                  },
+                },
                 style: const ButtonStyle(
                     backgroundColor:
-                        MaterialStatePropertyAll<Color>(Color(0xFF90CAF9))),
+                        MaterialStatePropertyAll(Color(0xFF90CAF9))),
                 child: const Text('LOGIN',
                     textAlign: TextAlign.center,
                     style:

@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
@@ -20,7 +21,9 @@ class NotificationUtilities {
             android: androidInitialize, iOS: initializationSettingsDarwin);
     await flutterLocalNotificationsPlugin.initialize(
       initializationsSettings,
-      onDidReceiveNotificationResponse: (NotificationResponse notification) {},
+      onDidReceiveNotificationResponse: (NotificationResponse notification) {
+        log(notification.payload.toString());
+      },
     );
   }
 

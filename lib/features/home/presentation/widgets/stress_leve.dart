@@ -27,7 +27,7 @@ class StressRate extends StatelessWidget {
               color: Colors.transparent,
               child: BlocBuilder<HomeCubit, HomeState>(
                 builder: (BuildContext context, HomeState state) {
-                  int val = HomeCubit.get(context).getStressLevel;
+                  final int val = HomeCubit.get(context).getStressLevel;
                   return StepProgressIndicator(
                     totalSteps: 10,
                     currentStep: val,

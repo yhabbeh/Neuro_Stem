@@ -63,8 +63,6 @@ class HeartRate extends StatelessWidget {
                             color: Colors.lightBlueAccent),
                       ],
                       maxX: 60,
-                      minY: 50,
-                      maxY: 80,
                       titlesData: const FlTitlesData(
                           topTitles: AxisTitles(
                             axisNameSize: 30,

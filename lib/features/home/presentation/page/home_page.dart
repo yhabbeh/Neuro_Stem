@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/EDA_rate.dart';
 import '../widgets/heart_rate_widget.dart';
-import '../widgets/scatter_chart.dart';
+import '../widgets/stress_leve.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
