@@ -40,6 +40,8 @@ dependencies:
   connectivity_plus: ^2.3.2
   flutter_bloc: ^8.1.3
   flutter_local_notifications: ^15.1.0+1
+  breathing_collection: ^1.0.0+3
+  font_awesome_flutter: ^10.5.0
 
   fl_chart: ^0.63.0
   shared_preferences: 2.0.15

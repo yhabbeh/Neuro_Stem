@@ -41,8 +41,7 @@ class HeartRate extends StatelessWidget {
                       lineBarsData: <LineChartBarData>[
                         LineChartBarData(
                             spots: <FlSpot>[
-                              FlSpot(DateTime.now().minute.toDouble(),
-                                  HomeCubit.get(context).getBpmRatio),
+                              FlSpot(DateTime.now().minute.toDouble(), 65),
                               FlSpot(
                                   calculateTimeInPast(timeDifference: 10), 73),
                               FlSpot(
@@ -54,7 +53,7 @@ class HeartRate extends StatelessWidget {
                               FlSpot(
                                   calculateTimeInPast(timeDifference: 50), 69),
                               FlSpot(
-                                  calculateTimeInPast(timeDifference: 60), 65),
+                                  calculateTimeInPast(timeDifference: 60), 75),
                             ],
                             belowBarData: BarAreaData(
                                 color: Colors.blue.shade50, show: true),
@@ -62,6 +61,7 @@ class HeartRate extends StatelessWidget {
                             dotData: const FlDotData(show: false),
                             color: Colors.lightBlueAccent),
                       ],
+                      minY: 50,
                       maxX: 60,
                       titlesData: const FlTitlesData(
                           topTitles: AxisTitles(

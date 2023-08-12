@@ -17,8 +17,8 @@ class HomeCubit extends Cubit<HomeState> {
     return currentBpm;
   }
 
-  int get getStressLevel {
-    final int stressLevel = Random().nextInt(10);
+  bool get getStressLevel {
+    final bool stressLevel = Random().nextBool();
     return stressLevel;
   }
 }

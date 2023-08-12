@@ -64,12 +64,14 @@ class LoginBox extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Future<void>.delayed(
-                      const Duration(seconds: 10),
-                      () => NotificationUtilities.showBigTextNotification(
-                          id: '0',
-                          title: 'Hello Nabeeh',
-                          body: 'You Are Stress',
-                          payload: 'hi hi hi h ihi'));
+                    const Duration(seconds: 10),
+                    () => NotificationUtilities.showBigTextNotification(
+                        id: '0',
+                        title: 'Stress detected',
+                        body: 'please connect (Neurosky Mindwave EEG) Device.',
+                        payload:
+                            'please connect (Neurosky Mindwave EEG) Device'),
+                  );
                   Navigator.push(
                       context,
                       MaterialPageRoute(
