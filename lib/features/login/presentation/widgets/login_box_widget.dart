@@ -59,10 +59,12 @@ class LoginBox extends StatelessWidget {
               width: ResponsiveUI.screenWidth! * 0.5,
               height: ResponsiveUI.screenHeight! * 0.05,
               child: ElevatedButton(
-                onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => HomePage())),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => const HomePage()));
+                },
                 style: const ButtonStyle(
                     backgroundColor:
                         MaterialStatePropertyAll<Color>(Color(0xFF90CAF9))),
