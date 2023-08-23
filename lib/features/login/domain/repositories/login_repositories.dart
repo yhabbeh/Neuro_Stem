@@ -5,6 +5,6 @@ import '../../data/model/login_model.dart';
 import '../../data/model/login_user_model.dart';
 
 abstract class LoginRepositories{
-  Future<Either<Failure , LoginModel>>loginUser(LoginUserModel loginUserModel);
+  Future<Either<Failure , LoginUserModel>>loginUser(LoginDataModel loginUserModel);
 }
 

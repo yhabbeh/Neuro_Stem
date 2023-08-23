@@ -1,48 +1,25 @@
-class LoginModel {
+// To parse this JSON data, do
+//
+//     final loginModel = loginModelFromJson(jsonString);
 
-  LoginModel({
-    this.message,
-    this.isSuccee,
-    this.returnId,
-    this.results,
+import 'dart:convert';
+
+LoginUserModel loginModelFromJson(String str) => LoginUserModel.fromJson(json.decode(str));
+
+String loginModelToJson(LoginUserModel data) => json.encode(data.toJson());
+
+class LoginUserModel {
+
+  LoginUserModel({
+    required this.isSuccess,
   });
 
-  LoginModel.fromJson(Map<String, dynamic> json) {
-    message = json['Message'];
-    isSuccee = json['IsSuccee'];
-    returnId = json['ReturnId'];
-    results =json['Results']??[];
-  }
-  String? message;
-  bool? isSuccee;
-  int? returnId;
-  List<dynamic>? results;
+  factory LoginUserModel.fromJson(Map<String, dynamic> json) => LoginUserModel(
+    isSuccess: json['isSuccess'],
+  );
+  bool isSuccess;
 
-  Map<String, dynamic> toJson() {
-    return  {
-      'Message':message,
-      'IsSuccee':isSuccee,
-      'ReturnId':returnId,
-      'Results':results,
-    };
-  }
-
-}
-class UserGroups {
-
-  UserGroups({this.groupID});
-
-  UserGroups.fromJson(Map<String, dynamic> json) {
-    groupID = json['GroupID'];
-  }
-  int? groupID;
-  Map<String, dynamic> toJson() {
-    return {
-      'GroupID': groupID,
-    };
-  }
-}
-
-class MasterAPI{
-
+  Map<String, dynamic> toJson() => {
+    "isSuccess": false
+  };
 }

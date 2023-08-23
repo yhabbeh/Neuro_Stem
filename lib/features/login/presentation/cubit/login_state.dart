@@ -11,3 +11,7 @@ class LoginInitial extends LoginState {}
 class IsVisiblePasswordLoading extends LoginState {}
 
 class IsVisiblePasswordLoaded extends LoginState {}
+
+class LoginDataUserLoading extends LoginState {}
+
+class LoginDataUserLoaded extends LoginState {}

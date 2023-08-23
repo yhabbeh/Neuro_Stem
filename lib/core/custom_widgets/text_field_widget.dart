@@ -45,7 +45,7 @@ class CustomTextField extends StatelessWidget {
           color: Colors.black87,
           fontSize: 17,
         ),
-        obscureText: !LoginCubit.get(context).getIsVisiblePass,
+        obscureText: isPassword&&!LoginCubit.get(context).getIsVisiblePass,
         textInputAction:
             isPassword ? TextInputAction.done : TextInputAction.next,
       ),

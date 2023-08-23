@@ -18,7 +18,7 @@ class StressRate extends StatelessWidget {
         elevation: 30,
         child: BlocBuilder<HomeCubit, HomeState>(
             builder: (BuildContext context, HomeState state) {
-          final bool val = HomeCubit.get(context).getStressLevel;
+          final bool val = true;//HomeCubit.get(context).getStressLevel;
           log(val.toString());
           return Column(
             children: <Widget>[

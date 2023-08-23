@@ -19,6 +19,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   bool get getStressLevel {
     final bool stressLevel = Random().nextBool();
-    return stressLevel;
+    return true;
   }
 }

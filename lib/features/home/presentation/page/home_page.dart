@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Scaffold(
         body: SingleChildScrollView(
+      primary: false,
       child: Column(
         children: <Widget>[
           HeartRate(),
@@ -26,7 +27,6 @@ class HomePage extends StatelessWidget {
           StressRate(),
         ],
       ),
-      primary: false,
     ));
   }
 }

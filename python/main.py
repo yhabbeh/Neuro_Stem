@@ -1,7 +1,7 @@
+import time
 from datetime import datetime
 from flask import Flask, request, jsonify
 import json
-import joblib
 from predect import *
 
 app = Flask(__name__)
@@ -14,12 +14,12 @@ def home():
 
 user_temp = '''[
    {
-      "user": "admin",
+      "username": "admin",
       "password": "admin",
       "id" : 1001230
    },
    {
-      "user": "lujain",
+      "username": "lujain",
       "password": "lujain", 
         "id" : 1002332
    }
@@ -27,11 +27,14 @@ user_temp = '''[
 data_json = json.loads(user_temp)
 
 
-@app.route('/login')
+@app.post('/login')
 def login():
+    time.sleep(5)
     for person in data_json:
-        if person['user'] == request.get_json()['user'] and person['password'] == request.get_json()['password']:
-            return person, 200
+        if person['username'] == request.get_json()['username'] and person['password'] == request.get_json()[
+            'password']:
+            return {"isSuccess": True}, 200
+    return {"isSuccess": False}, 200
 
 
 @app.get('/predict')
@@ -41,11 +44,11 @@ def predict():
     result = bool(pred(input))
     print(f'---------------{type(result)}000--{result}')
     return {"result": result,
-            "input" : input,
-            "id" : id,
+            "input": input,
+            "id": id,
             "DateTime": str(datetime.now())
             }
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='10.10.100.158', port=5000)
