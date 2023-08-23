@@ -9,7 +9,7 @@ import 'core/utilities/cache_helper.dart';
 import 'core/utilities/responsive_ui.dart';
 import 'features/home/presentation/cubit/home_cubit.dart';
 import 'features/login/presentation/cubit/login_cubit.dart';
-import 'features/sssssssssssssss.dart';
+import 'features/login/presentation/pages/login_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -62,7 +62,7 @@ class MyApp extends StatelessWidget {
                   Locale("ar", ""),
                 ],
                 debugShowCheckedModeBanner: false,
-                home: const HomeScreen());
+                home: const LoginPage());
           }
           return const SizedBox();
         }));

@@ -42,6 +42,7 @@ dependencies:
   shared_preferences: 2.0.15
   percent_indicator: ^4.2.3
   step_progress_indicator: ^1.0.2
+  just_audio: ^0.9.34
   flutter_localizations:
     sdk: flutter
 dev_dependencies:
@@ -66,6 +67,7 @@ flutter:
     - images/neuro_logo.png
     - assets/lang/ar.json
     - assets/lang/en.json
+    - assets/example.mp3
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
