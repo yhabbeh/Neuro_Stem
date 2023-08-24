@@ -22,7 +22,7 @@ class NotificationUtilities {
     await flutterLocalNotificationsPlugin.initialize(
       initializationsSettings,
       onDidReceiveNotificationResponse: (NotificationResponse notification) {
-        log(notification.payload.toString());
+        log(notification.payload.toString());//play audio
       },
     );
   }

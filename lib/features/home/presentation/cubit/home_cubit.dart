@@ -4,6 +4,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/utilities/notification_utiities.dart';
+
 part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
@@ -17,8 +19,31 @@ class HomeCubit extends Cubit<HomeState> {
     return currentBpm;
   }
 
-  bool get getStressLevel {
-    final bool stressLevel = Random().nextBool();
-    return true;
+
+  bool _stressLevel = true;
+
+  bool get getIsStress => _stressLevel;
+
+  set setIsStress(bool value) {
+    emit(StressLevelLoading());
+    _stressLevel = value;
+    if (value) {
+      Future<void>.delayed(
+        const Duration(seconds: 1),
+            () => NotificationUtilities.showBigTextNotification(
+            id: '0',
+            title: 'Stress detected',
+            body:
+            'please connect (Neurosky Mindwave EEG) Device.',
+            payload:
+            'please connect (Neurosky Mindwave EEG) Device'),
+      );
+    }
+    emit(StressLevelLoaded());
   }
+
+
+
+
+
 }

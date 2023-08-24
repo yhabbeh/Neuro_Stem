@@ -1,5 +1,5 @@
 import 'dart:async';
-
+import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -18,22 +18,14 @@ class HeartRate extends StatelessWidget {
       // log(CacheHelper.getData(key: BPM_RATE).toString());
       return Column(
         children: <Widget>[
-          Container(
-            padding: const EdgeInsets.only(top: 70),
-            height: 100,
-            width: ResponsiveUI.screenWidth! * 0.9,
-            child: Text(
-              'Heart rate records ',
-              style: TextStyle(color: Colors.blue.shade900, fontSize: 20),
-            ),
-          ),
+          SizedBox(height: 20,),
           Card(
             shadowColor: Colors.blue.shade900,
             elevation: 10,
             child: Container(
-              padding: const EdgeInsets.only(right: 20),
+              padding: const EdgeInsets.only(right: 20,left: 20),
               height: ResponsiveUI.screenHeight! * 0.3,
-              width: ResponsiveUI.screenWidth! * 0.8,
+              width: ResponsiveUI.screenWidth! * 0.9,
               child: AspectRatio(
                 aspectRatio: 1,
                 child: LineChart(
@@ -63,11 +55,12 @@ class HeartRate extends StatelessWidget {
                       ],
                       minY: 50,
                       maxX: 60,
-                      titlesData: const FlTitlesData(
+                      titlesData: FlTitlesData(
                           topTitles: AxisTitles(
                             axisNameSize: 30,
                             axisNameWidget: Text(
-                              'Average bpm',
+                              'Heart rate records ',
+                              style: TextStyle( fontSize: 15),
                             ),
                           ),
                           rightTitles: AxisTitles())),

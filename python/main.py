@@ -29,7 +29,7 @@ data_json = json.loads(user_temp)
 
 @app.post('/login')
 def login():
-    time.sleep(5)
+    # time.sleep(5)
     for person in data_json:
         if person['username'] == request.get_json()['username'] and person['password'] == request.get_json()[
             'password']:
@@ -52,3 +52,5 @@ def predict():
 
 if __name__ == "__main__":
     app.run(host='10.10.100.158', port=5000)
+
+#C:\Users\ymohammad\AppData\Local\Microsoft\WindowsApps\python3.11.exe main.py

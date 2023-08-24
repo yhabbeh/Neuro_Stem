@@ -88,16 +88,7 @@ class LoginBox extends StatelessWidget {
                       height: ResponsiveUI.screenHeight! * 0.05,
                       child: ElevatedButton(
                         onPressed: () {
-                          Future<void>.delayed(
-                            const Duration(seconds: 10),
-                            () => NotificationUtilities.showBigTextNotification(
-                                id: '0',
-                                title: 'Stress detected',
-                                body:
-                                    'please connect (Neurosky Mindwave EEG) Device.',
-                                payload:
-                                    'please connect (Neurosky Mindwave EEG) Device'),
-                          );
+
                           LoginCubit.get(context).userLogin(LoginDataModel(username: usernameController.text , password: passwordController.text),context);
                         /*  if(state is LoginDataUserLoaded){
                             Navigator.push(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'core/utilities/notification_utiities.dart';
@@ -13,6 +14,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   NotificationUtilities.initialize();
   NotificationUtilities.requestPermissions();
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await initialDI();
   runApp(const MyApp());
 }
