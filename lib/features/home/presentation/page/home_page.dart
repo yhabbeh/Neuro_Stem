@@ -26,78 +26,58 @@ class _HomePageState extends State<HomePage> {
           builder: (BuildContext innerContext) => AlertDialog(
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
-              backgroundColor: const Color(0xff00A86B),
+              // backgroundColor: const Color(),
               scrollable: true,
               title: const Text(
                   'Please Choose Which your Favorite Music You Are Like:'),
               content: SizedBox(
-                height: ResponsiveUI.screenHeight! * 0.35,
+                height: ResponsiveUI.screenHeight! * 0.4,
                 width: ResponsiveUI.screenWidth! * .7,
-                child: GridView.count(
-                    crossAxisCount: 3,
-                    childAspectRatio: 0.7,
+                child: ListView(
+                  // scrollDirection:Axis.horizontal ,
                     padding: const EdgeInsets.all(5),
-                    mainAxisSpacing: 7.0,
-                    crossAxisSpacing: 7.0,
                     children: [
-                      InkWell(
-                        onTap: () async {
-                          final player = AudioPlayer(); // Create a player
-                          final duration = await player.setAsset(
-                              'assets/example.mp3'); // Schemes: (https: | file: | asset: )
-                          // Play without waiting for completion
-                          await player.play();
-                          Navigator.pop(context);
-                        },
-                        child: Container(
-                          height: ResponsiveUI.screenHeight! * 0.8,
-                          width: ResponsiveUI.screenWidth! * 0.4,
-                          decoration: BoxDecoration(
-                            color: const Color(0xff72EABF),
-                            image: const DecorationImage(
-                                image: AssetImage('images/national_image.png'),
-                                fit: BoxFit.fill),
-                            borderRadius: BorderRadius.circular(15.0),
-                          ),
-                          child: Center(
-                            child: Text(
-                              'National Music ',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.deepPurpleAccent,
+                        InkWell(
+                          onTap: () async {
+                            final player = AudioPlayer(); // Create a player
+                            final duration = await player.setAsset(
+                                'assets/example.mp3'); // Schemes: (https: | file: | asset: )
+                            // Play without waiting for completion
+                            await player.play();
+                            Navigator.pop(context);
+                          },
+                          child: Container(
+                            height: ResponsiveUI.screenHeight! * 0.1 ,
+                            decoration: BoxDecoration(
+                              image: const DecorationImage(
+                                  image: AssetImage('images/national_image.png'),
+                                  fit: BoxFit.cover),
+                              borderRadius: BorderRadius.circular(15.0),
+                            ),
+                            child:  Center(
+                              child: Text(
+                                'National Music ',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 20,
+                                  backgroundColor: Colors.white54.withOpacity(0.7) ,
+                                  shadows: [Shadow(color: Colors.red)]
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+
                       Container(
-                        height: ResponsiveUI.screenHeight! * 0.8,
-                        width: ResponsiveUI.screenWidth! * 0.4,
+                        margin: EdgeInsets.only(top: 15),
+                        height: ResponsiveUI.screenHeight! * 0.1,
+                        // width: ResponsiveUI.screenWidth! * 0.4,
                         decoration: BoxDecoration(
                           color: const Color(0xff72EABF),
                           image: const DecorationImage(
                               image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.fill),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: Center(
-                          child: Text(
-                            'National Music ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: ResponsiveUI.screenHeight! * 0.8,
-                        width: ResponsiveUI.screenWidth! * 0.4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff72EABF),
-                          image: const DecorationImage(
-                              image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.fill),
+                              fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: const Center(
@@ -111,53 +91,14 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Container(
-                        height: ResponsiveUI.screenHeight! * 0.8,
-                        width: ResponsiveUI.screenWidth! * 0.4,
+                        margin: EdgeInsets.only(top: 15),
+                        height: ResponsiveUI.screenHeight! * 0.1,
+                        // width: ResponsiveUI.screenWidth! * 0.4,
                         decoration: BoxDecoration(
                           color: const Color(0xff72EABF),
                           image: const DecorationImage(
                               image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.fill),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'National Music ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: ResponsiveUI.screenHeight! * 0.8,
-                        width: ResponsiveUI.screenWidth! * 0.4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff72EABF),
-                          image: const DecorationImage(
-                              image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.fill),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'National Music ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                            ),
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: ResponsiveUI.screenHeight! * 0.8,
-                        width: ResponsiveUI.screenWidth! * 0.4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff72EABF),
-                          image: const DecorationImage(
-                              image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.fill),
+                              fit: BoxFit.cover),
                           borderRadius: BorderRadius.circular(15.0),
                         ),
                         child: const Center(
