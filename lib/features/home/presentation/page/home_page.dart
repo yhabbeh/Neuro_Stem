@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:neuro_stem/features/home/presentation/cubit/home_cubit.dart';
 
 //import 'package:just_audio/just_audio.dart';
-
 import '../../../../core/utilities/responsive_ui.dart';
 import '../widgets/EDA_rate.dart';
 import '../widgets/heart_rate_widget.dart';
@@ -33,85 +32,45 @@ class _HomePageState extends State<HomePage> {
               content: SizedBox(
                 height: ResponsiveUI.screenHeight! * 0.4,
                 width: ResponsiveUI.screenWidth! * .7,
-                child: ListView(
-                  // scrollDirection:Axis.horizontal ,
-                    padding: const EdgeInsets.all(5),
-                    children: [
-                        InkWell(
-                          onTap: () async {
-                            final player = AudioPlayer(); // Create a player
-                            final duration = await player.setAsset(
-                                'assets/example.mp3'); // Schemes: (https: | file: | asset: )
-                            // Play without waiting for completion
-                            await player.play();
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            height: ResponsiveUI.screenHeight! * 0.1 ,
-                            decoration: BoxDecoration(
-                              image: const DecorationImage(
-                                  image: AssetImage('images/national_image.png'),
-                                  fit: BoxFit.cover),
-                              borderRadius: BorderRadius.circular(15.0),
-                            ),
-                            child:  Center(
-                              child: Text(
-                                'National Music ',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
+                child: ListView.builder(
+                  padding: const EdgeInsets.all(5),
+                  itemBuilder: (BuildContext context, int index) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(
+                          vertical: ResponsiveUI.screenHeight! * 0.005),
+                      child: InkWell(
+                        onTap: () {
+                          HomeCubit.get(context).typesOfMusic[index].onTap!();
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          height: ResponsiveUI.screenHeight! * 0.15,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                                image: AssetImage(HomeCubit.get(context)
+                                    .typesOfMusic[index]
+                                    .imagePath),
+                                fit: BoxFit.cover),
+                            borderRadius: BorderRadius.circular(15.0),
+                          ),
+                          child: Center(
+                            child: Text(
+                              HomeCubit.get(context).typesOfMusic[index].title,
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
                                   color: Colors.black,
                                   fontSize: 20,
-                                  backgroundColor: Colors.white54.withOpacity(0.7) ,
-                                  shadows: [Shadow(color: Colors.red)]
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        height: ResponsiveUI.screenHeight! * 0.1,
-                        // width: ResponsiveUI.screenWidth! * 0.4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff72EABF),
-                          image: const DecorationImage(
-                              image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'National Music ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
+                                  backgroundColor:
+                                      Colors.white54.withOpacity(0.4),
+                                  shadows: const [Shadow(color: Colors.red)]),
                             ),
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(top: 15),
-                        height: ResponsiveUI.screenHeight! * 0.1,
-                        // width: ResponsiveUI.screenWidth! * 0.4,
-                        decoration: BoxDecoration(
-                          color: const Color(0xff72EABF),
-                          image: const DecorationImage(
-                              image: AssetImage('images/national_image.png'),
-                              fit: BoxFit.cover),
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            'National Music ',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: Colors.deepPurpleAccent,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ]),
+                    );
+                  },
+                  itemCount: HomeCubit.get(context).typesOfMusic.length,
+                ),
               )));
     });
 
