@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:neuro_stem/features/splash_screen.dart';
 
 import 'core/cubit/local_lang_cubit.dart';
 import 'core/cubit/local_lang_state.dart';
@@ -11,7 +12,6 @@ import 'core/utilities/responsive_ui.dart';
 import 'features/home/presentation/cubit/home_cubit.dart';
 import 'features/login/domain/usecase/login_usecase.dart';
 import 'features/login/presentation/cubit/login_cubit.dart';
-import 'features/login/presentation/pages/login_page.dart';
 import 'injection/container_injection.dart';
 
 Future<void> main() async {
@@ -66,9 +66,11 @@ class MyApp extends StatelessWidget {
                   Locale('ar', ''),
                 ],
                 debugShowCheckedModeBanner: false,
-                home: const LoginPage());
+                home: const SplashScreen());
           }
-          return const SizedBox();
+          return Container(
+            color: Colors.blue,
+          );
         }));
   }
 }

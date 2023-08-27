@@ -1,11 +1,7 @@
-import 'dart:developer';
-
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/error/failures.dart';
 import '../../../home/presentation/page/home_page.dart';
 import '../../data/model/login_model.dart';
 import '../../data/model/login_user_model.dart';
@@ -24,17 +20,19 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> userLogin(
       LoginDataModel loginUserModel, BuildContext context) async {
-    bool logs=false;
+    bool logs = false;
     emit(LoginDataUserLoading());
-    if((loginUserModel.password ==loginUserModel.username)==(  loginUserModel.username == "admin"))logs=true;
-    if((loginUserModel.password ==loginUserModel.username)==(  loginUserModel.username == "lujain"))logs=true;
+    if ((loginUserModel.password == loginUserModel.username) ==
+        (loginUserModel.username == "admin")) logs = true;
+    if ((loginUserModel.password == loginUserModel.username) ==
+        (loginUserModel.username == "lujain")) logs = true;
     if (logs) {
-     Navigator.push(context,
+      Navigator.push(context,
           MaterialPageRoute(builder: (BuildContext context) => HomePage()));
       emit(LoginDataUserLoaded());
     } else
       emit(LoginDataUserLoading());
-      /*final Either<Failure, LoginUserModel> result = await loginUseCase
+    /*final Either<Failure, LoginUserModel> result = await loginUseCase
         .call(LoginUserUseCaseParams(loginUserModel: loginUserModel));
     result.fold((Failure l) => null, (LoginUserModel r) {
       loginDataResultModel = r;
@@ -48,16 +46,15 @@ class LoginCubit extends Cubit<LoginState> {
     } else
       emit(LoginDataUserLoading());
      */
+  }
 
-    }
+  bool _isVisiblePass = false;
 
-    bool _isVisiblePass = false;
+  bool get getIsVisiblePass => _isVisiblePass;
 
-    bool get getIsVisiblePass => _isVisiblePass;
-
-    set setIsVisiblePass(bool value) {
-      emit(IsVisiblePasswordLoading());
-      _isVisiblePass = value;
-      emit(IsVisiblePasswordLoaded());
-    }
+  set setIsVisiblePass(bool value) {
+    emit(IsVisiblePasswordLoading());
+    _isVisiblePass = value;
+    emit(IsVisiblePasswordLoaded());
+  }
 }
