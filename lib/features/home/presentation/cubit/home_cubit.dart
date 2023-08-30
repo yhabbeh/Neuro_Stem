@@ -72,7 +72,7 @@ class HomeCubit extends Cubit<HomeState> {
         id: 3,
         imagePath: 'images/rains.png',
         onTap: () async {
-          tempPath = 'nature.mp3';
+          tempPath = 'rain.mp3';
           audioPlayer.play(AssetSource(tempPath));
           await Future.delayed(const Duration(seconds: 10));
           audioPlayer.stop();
