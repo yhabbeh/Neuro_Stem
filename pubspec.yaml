@@ -73,11 +73,7 @@ flutter:
     - images/neuro_logo.png
     - assets/lang/ar.json
     - assets/lang/en.json
-    - assets/example.mp3
     - assets/nature.mp3
-    - assets/nature1.mp3
-    - assets/nature2.mp3
-    - assets/nature3.mp3
     - assets/sea.mp3
     - assets/rain.mp3
 
