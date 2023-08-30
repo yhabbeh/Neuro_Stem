@@ -1,5 +1,7 @@
+import 'dart:developer';
 import 'dart:math' hide log;
 
+import 'package:audioplayers/audioplayers.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,15 +50,32 @@ class HomeCubit extends Cubit<HomeState> {
         title: 'Nature',
         id: 1,
         imagePath: 'images/national_image.png',
-        onTap: () async {}),
+        onTap: () async {
+          tempPath = 'nature.mp3';
+          audioPlayer.play(AssetSource(tempPath));
+          await Future.delayed(Duration(seconds: 10));
+          audioPlayer.stop();
+        }),
     TypeOfModel(
         title: 'Sea',
         id: 2,
         imagePath: 'images/sea.png',
-        onTap: () {
-          assetsAudioPath = 'example.mp3';
+        onTap: () async {
+          tempPath = 'sea.mp3';
+          log(tempPath);
+          audioPlayer.play(AssetSource(tempPath));
+          await Future.delayed(const Duration(seconds: 10));
+          audioPlayer.stop();
         }),
     TypeOfModel(
-        title: 'Rain', id: 3, imagePath: 'images/rains.png', onTap: () {})
+        title: 'Rain',
+        id: 3,
+        imagePath: 'images/rains.png',
+        onTap: () async {
+          tempPath = 'nature.mp3';
+          audioPlayer.play(AssetSource(tempPath));
+          await Future.delayed(const Duration(seconds: 10));
+          audioPlayer.stop();
+        })
   ];
 }

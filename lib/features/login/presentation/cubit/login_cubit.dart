@@ -22,10 +22,10 @@ class LoginCubit extends Cubit<LoginState> {
       LoginDataModel loginUserModel, BuildContext context) async {
     bool logs = false;
     emit(LoginDataUserLoading());
-    if ((loginUserModel.password == loginUserModel.username) ==
-        (loginUserModel.username == "admin")) logs = true;
-    if ((loginUserModel.password == loginUserModel.username) ==
-        (loginUserModel.username == "lujain")) logs = true;
+    if ((loginUserModel.password?.trim() == loginUserModel.username?.trim()) ==
+        (loginUserModel.username?.trim() == "admin")) logs = true;
+    if ((loginUserModel.password?.trim() == loginUserModel.username?.trim()) ==
+        (loginUserModel.username?.trim() == "lujain")) logs = true;
     if (logs) {
       Navigator.push(context,
           MaterialPageRoute(builder: (BuildContext context) => HomePage()));

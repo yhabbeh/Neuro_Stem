@@ -5,7 +5,6 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
-import '../../features/home/presentation/cubit/home_cubit.dart';
 import '../resources/constants.dart';
 
 class NotificationUtilities {
@@ -30,7 +29,7 @@ class NotificationUtilities {
           (NotificationResponse notification) async {
         log(notification.payload.toString());
         await audioPlayer.play(AssetSource(assetsAudioPath));
-        HomeCubit.get(context).typesOfMusic[0].onTap!(); //play audio
+        // HomeCubit.get(context).typesOfMusic[0].onTap!(); //play audio
       },
     );
   }

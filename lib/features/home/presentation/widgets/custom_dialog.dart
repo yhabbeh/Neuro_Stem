@@ -1,4 +1,7 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:neuro_stem/core/resources/constants.dart';
 
 import '../../../../core/utilities/responsive_ui.dart';
 import '../cubit/home_cubit.dart';
@@ -16,8 +19,19 @@ void customDialog({
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
             // backgroundColor: const Color(),
             scrollable: true,
-            title: const Text(
-                'Please Choose Which your Favorite Music You Are Like:'),
+            title: const Text('Choose Your Ideal Relaxation Sound:'),
+            actionsAlignment: MainAxisAlignment.center,
+            actions: [
+              ElevatedButton(
+                  onPressed: () {
+                    assetsAudioPath =
+                        tempPath.isEmpty ? 'example.mp3' : tempPath;
+                    audioPlayer.stop();
+                    Navigator.of(context).pop();
+                    log('paaaaaaaaaaaaaaath${assetsAudioPath}-------${tempPath}');
+                  },
+                  child: const Text('OK'))
+            ],
             content: SizedBox(
               height: ResponsiveUI.screenHeight! * 0.4,
               width: ResponsiveUI.screenWidth! * .7,
@@ -30,7 +44,7 @@ void customDialog({
                     child: InkWell(
                       onTap: () {
                         HomeCubit.get(context).typesOfMusic[index].onTap!();
-                        Navigator.pop(context);
+                        // Navigator.pop(context);
                       },
                       child: Container(
                         height: ResponsiveUI.screenHeight! * 0.15,

@@ -57,7 +57,8 @@ class HeartRate extends StatelessWidget {
                       ],
                       minY: 50,
                       maxX: 60,
-                      titlesData: FlTitlesData(
+                      titlesData: const FlTitlesData(
+                          show: true,
                           topTitles: AxisTitles(
                             axisNameSize: 30,
                             axisNameWidget: Text(
@@ -65,6 +66,20 @@ class HeartRate extends StatelessWidget {
                               style: TextStyle(fontSize: 15),
                             ),
                           ),
+                          bottomTitles: AxisTitles(
+                              drawBelowEverything: false,
+                              sideTitles: SideTitles(
+                                  showTitles: true, reservedSize: 30),
+                              axisNameWidget: Text('Time (min)'),
+                              axisNameSize: 30),
+                          leftTitles: AxisTitles(
+                              axisNameWidget: Text('beats per minute (bpm)',
+                                  textDirection: TextDirection.ltr),
+                              sideTitles: SideTitles(
+                                  interval: 5,
+                                  showTitles: true,
+                                  reservedSize: 30),
+                              axisNameSize: 30),
                           rightTitles: AxisTitles())),
                 ),
               ),
